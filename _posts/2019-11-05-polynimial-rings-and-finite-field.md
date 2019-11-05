@@ -27,7 +27,7 @@ denoted by + and $\cdot$, such that:
 2. · is associative
 3. Distributive laws hold
 
-$$ a \cdot (b + c) = a \cdot b + a \cdot c and (b + c) \cdot a = b \cdot a + c \cdot a  $$ 
+$$ a \cdot (b + c) = a \cdot b + a \cdot c $$and $$(b + c) \cdot a = b \cdot a + c \cdot a  $$ 
 
 ## Field
 
@@ -39,4 +39,4 @@ $$ Z_p = {0, 1, · · · , p − 1} $$, where p is a prime numbers
 
 3. Additions and multiplications are distributive.
 
-$$Z_p^* as a set of non-zero elements of Z_p$$
+$Z_p^*$ as a set of non-zero elements of $Z_p$
