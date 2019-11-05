@@ -1,8 +1,8 @@
 # config.yml
 
 backend:
-  name: github
-  repo: MinghongGao/MinghongGao.github.io # Branch to update (optional; defaults to master)
+  name: git-gateway
+  branch: master # Branch to update (optional; defaults to master)
 media_folder: 'images/uploads'
 collections:
   - name: 'blog'
