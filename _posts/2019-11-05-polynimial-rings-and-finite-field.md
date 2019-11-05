@@ -2,6 +2,10 @@
 layout: post
 title: Polynimial Rings And Finite Field
 ---
+Group, ring and field
+
+
+
 ## Group
 
 **Definition:** A Group is a set G together with a binary operation · on G such that the following three properties hold:
