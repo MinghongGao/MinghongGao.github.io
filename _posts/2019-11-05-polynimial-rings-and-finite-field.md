@@ -109,7 +109,7 @@ $$ (1 + x+ 2x^3)(1 + x) = (1 +2x+x^2 +2x^3 +2x^4$$
 
 > Hard Integer factorization problem, but not for factorizing a polynomial over $Z_p$ using Berlekamp
 >
-> $$GF(p^k) = GF(p)\[x] \mod m(x)$$
+> $$GF(p^k) = GF(p)[x] \mod m(x)$$
 > Where
 
 * p is prime
@@ -126,7 +126,7 @@ $$ (1 + x+ 2x^3)(1 + x) = (1 +2x+x^2 +2x^3 +2x^4$$
 
 ### Example
 
-$$GF(3^2) = GF(3)\[x] \mod (2 + 2x + x^2 )$$
+$$GF(3^2) = GF(3)[x] \mod (2 + 2x + x^2 )$$
 
 ![](/images/screenshot-from-2019-11-06-14-43-46.png)
 
