@@ -124,6 +124,12 @@ $$ (1 + x+ 2x^3)(1 + x) = (1 +2x+x^2 +2x^3 +2x^4$$
 
 * Euclidean Algorithm
 
+### Example
+
+$$GF(3^2) = GF(3)\[x] \mod (2 + 2x + x^2 )$$
+
+![](/images/screenshot-from-2019-11-06-14-43-46.png)
+
 ## Primitive Irreducible Polynomials
 
 The **multiplicative order** of the indeterminate x is exactly
