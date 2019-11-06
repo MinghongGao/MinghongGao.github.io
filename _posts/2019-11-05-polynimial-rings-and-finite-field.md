@@ -8,17 +8,11 @@ Group, ring and field
 
 **Definition:** A Group is a set G together with a binary operation · on G such that the following three properties hold:
 
-1. Associative:
+1. Associative:$a \cdot (b \cdot c) =(a \cdot b) \cdot c$
 
-$$a \cdot (b \cdot c) =(a \cdot b) \cdot c$$
+2. Identity element:$a \cdot e = e \cdot a = a$
 
-2. Identity element:
-
-$$a \cdot e = e \cdot a = a$$
-
-3. Inverse element:
-
-$$a · a ^{−1} = a ^{−1} · a = e$$
+3. Inverse element:$a · a ^{−1} = a ^{−1} · a = e$
 
 ### Commutative(abelian) group
 
