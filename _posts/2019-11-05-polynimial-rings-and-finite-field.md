@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Polynimial Rings And Finite Field
+title: Cryptography - Polynimial Rings And Finite Field
 ---
 Group, ring and field
 
