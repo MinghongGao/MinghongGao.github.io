@@ -8,7 +8,7 @@ Group, ring and field
 
 **Definition:** A Group is a set G together with a binary operation · on G such that the following three properties hold:
 
-1. Associative:\
+1. Associative:
 
 $$a \cdot (b \cdot c) =(a \cdot b) \cdot c$$
 
@@ -20,13 +20,13 @@ $$a \cdot e = e \cdot a = a$$
 
 $$a · a ^{−1} = a ^{−1} · a = e$$
 
-**Commutative(abelian)** group
+### Commutative(abelian) group
 
 $$a · b = b · a$$
 
 ## Ring
 
-**Definition:** $ (R, +, \cdot) $ is a set R,together with two binary operations,
+**Definition:** $(R, +, \cdot)$ is a set R,together with two binary operations,
 
 denoted by + and $\cdot$, such that:
 
@@ -62,14 +62,13 @@ where
 
 **Facts and Definitions**:
 
-* The zero polynomial is $f(x) = 0$
-* the degree is $-\infty$
+* The zero polynomial is $f(x) = 0$, the degree is $-\infty$
 * The degree of a polynomial $f(x)$, denoted $degf(x)$, is the largest index of a nonzero coefficient.
 
 E.g.: $deg(1 +x + 2x^3)$ is 3, and $deg(1)=deg(1x^0)=0$.
 
 * The degree of a nonzero polynomial is always finite.
-* Monic if the leading cofficient is 1
+* **Monic** if the leading cofficient is 1
 
 E.g. $1 + x +2x^3$ is not monic while $1 + x$ is monic
 
@@ -106,6 +105,26 @@ $$ (1 + x+ 2x^3)(1 + x) = (1 +2x+x^2 +2x^3 +2x^4$$
 * If the $GCD\[r (x), s(x)]$ is 1 then the polynomials $r (x)$ and $s(x)$ are relatively prime.
 * $LCM\[r (x), s(x)]$: Least common multiple of two polynomials $r (x)$ and $s(x)$, is the monic polynomial of the smallest degree that is divisible by both of them.
 
-## Long Division
+## Finite Fields of size $p^k$
 
-![long division](/images/screenshot-from-2019-11-06-10-11-14.png)
+> Hard Integer factorization problem, but not for factorizing a polynomial over $Z_p$ using Berlekamp
+>
+> $$GF(p^k) = GF(p)\[x] \mod m(x)$$
+> Where
+
+* p is prime
+* $m(x)$ is an irreducible polynomial of degree k
+* $GF^*(p^k )$ to denote all non-zero elements of $GF(p^k )$
+
+### Method
+
+* Long Devision
+
+![](/images/screenshot-from-2019-11-06-10-11-14.png)
+
+* Euclidean Algorithm
+
+## Primitive Irreducible Polynomials
+
+The **multiplicative order** of the indeterminate x is exactly
+equal to $p^{k − 1}$
