@@ -13,19 +13,16 @@ Final Exam Review
   * Three important concerns of Information security: CIA
   * OSI Security Architecture:Security attacks, Security Mechanisms, Security services.
   * Model for Network Access Security
-
 * Week 2: Symmetric key Cryptography
   * Two requirements for secure use of symmetric encryption
   * Main objective in the crypt analysis of symmetric key ciphers
   * Definitions of Security
   * Classical Ciphers
-
 * Week 3: Block Ciphers
   * Perfect Secrecy : One time pad
   * Computationally Secure Ciphers
   * Product Ciphers and Fiestel Ciphers
   * Block Cipher Modes
-
 * Week 4: Public Key Ciphers
   * Number Theorem:
     * Euler’s theorem
@@ -45,7 +42,6 @@ Final Exam Review
     * Factoring large integers.
   * Diffie-Hellman problem
     * Man in the middle attack
-
 * Week 5: Hash Function
   * Definition and requirements
   * One-way property
@@ -57,7 +53,6 @@ Final Exam Review
     * 64-bit hash is secure ?
     * But not for Birthday Paradox
     * Conclusion: Use large MAX/hash
-
 * Week 6:  Message Authentication Codes(MAC) and Digital Signatures
   * Definition and Requirements
   * Method of employment of MAC function
@@ -71,7 +66,6 @@ Final Exam Review
     * Inverse Modulo n when n is  a number
     * Assignment 1 and 2 and special exercises
     * All previous worksheets
-
 * Week 7:  Key Management 1
   * Difference between link and end-to-end encryption
   * Key management for Symmetric Key Cryptography
@@ -81,7 +75,6 @@ Final Exam Review
       * Man-in-the-Middle Attack
   * Symmetric Key Distribution using Public Key Encryption
     * Both Confidentiality and Authentication
-
 * Week 8:  Key Management 2
   * Four ways of distribution of Public Keys:
     * public announcement
@@ -90,7 +83,6 @@ Final Exam Review
     * public-key certificates
   * Public-key authority
   * Public-key Certificates and Revocation
-
 * Week 9
   * Elgamal Scheme
     * Encryption
@@ -116,11 +108,19 @@ Final Exam Review
   * Replay attacks
     * How and How to prevent
     * Suppress-Replay Attacks
-
-* Week 10: KeberoS + SSL
-  * What ?
-  * Requirements
-  * Ticket
+* Week 10: KeberoS(Based on symmetric key Crypto) + SSL(Based on asymmetric key Crypto)
+  * Keberos
+    ![](/images/screenshot-from-2019-11-08-19-30-10.png)
+    * Four Requirements
+      * Secure
+      * Scalable
+      * Reliable
+      * Transparent
+    * Symmetric Key Crypto - DES
+    * Two Components
+      * Authentication Server(AS)
+      * Ticket Granting Server
+        * Ticket
   * Two important SSL concepts
     * SSL Connection
     * SSL Session
