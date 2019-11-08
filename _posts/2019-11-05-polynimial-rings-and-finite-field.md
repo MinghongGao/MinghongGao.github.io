@@ -2,7 +2,7 @@
 layout: post
 title: Cryptography - Polynimial Rings And Finite Field
 ---
-Group, ring and field
+Difference among Group, ring and field
 
 ## Group
 
