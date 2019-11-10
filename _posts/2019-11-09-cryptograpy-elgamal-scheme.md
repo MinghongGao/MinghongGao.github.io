@@ -47,10 +47,15 @@ If Adversary knows $M_1$, he can then recover $M_2$ using Known Plaintext Attack
 Recovery Step:
 Attacker knows: 
 $C_1 = (C_{1_A}, C_{1_B})$
+
 $C_2 = (C_{2_A}, C_{2_B})$
+
 $M_1$
+
 Because $M_1 = C_{1_B} K^{-1} \mod q$
+
 He can recover $K^{-1}$
+
 Finally, $M_2 = C_2K^{-1}$
 
 ## Signature
