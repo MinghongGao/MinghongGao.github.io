@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Cryptography Schroeder Protocol and its Variations
+title: Cryptography - Schroeder Protocol and its Variations
 ---
 ## Original
 1. A$\to$KDC: $ID_A \parallel ID_B \parallel N_1$
