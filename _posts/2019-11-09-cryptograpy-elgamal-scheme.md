@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Cryptograpy - ElGamal Scheme
+title: Cryptography - ElGamal Scheme
 ---
 ## Problems
 
@@ -45,11 +45,10 @@ Cipher text: $C = (C_1,C_2)$
 **The importance of uniqueness of k:**
 If Adversary knows $M_1$, he can then recover $M_2$ using Known Plaintext Attack
 Recovery Step:
+
 Attacker knows: 
-$C_1 = (C_{1_A}, C_{1_B})$
-
-$C_2 = (C_{2_A}, C_{2_B})$
-
+$C_1 = (C_{1_A} , C_{1_B})$
+$C_2 = (C_{2_A} , C_{2_B})$
 $M_1$
 
 Because $M_1 = C_{1_B} K^{-1} \mod q$
