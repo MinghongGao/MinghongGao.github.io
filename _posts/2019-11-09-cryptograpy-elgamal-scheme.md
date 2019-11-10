@@ -48,6 +48,7 @@ Cipher text: $C = (C_1,C_2)$
 > Because $M_1 = C_{1_B} K^{-1} \mod q$
 > He can recover $K^{-1}$
 > Finally, $M_2 = C_2K^{-1}$
+
 ## Signature
 ### Signing Step - Alice
 
