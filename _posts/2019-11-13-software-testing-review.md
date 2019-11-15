@@ -4,12 +4,45 @@ title: Software Testing - Review
 ---
 ## Week 7 - 1
 
+Difference between ordinary program testing and security testing:
+
+**Program Testing:** seeks to uncover program **_faults_**, exhibited by failures: when the program’s observable behaviour differs from what it was intended or required to do.
+
+**Security Testing:** seeks to uncover security **_vulnerabilities_**: typically extra functionality that allows an attacker to do something unwanted.
+
+> Something unwanted:
+>
+> \
+>
+>
+> 1. Causing the program to crash: availability
+>
+> \
+>
+>
+> 2. Causing the program to corrupt data: integrity
+>
+> \
+>
+>
+> 3. Causing the program to reveal sentitive data: confidentiality
+>
+> \
+>
+>
+> 4. Causing the program to take excessive amount of time to execute: availability and performance
+>
+> \
+>
+>
+> 5. Causing the program to execute attacker-contolled functionality
+
 Vulnerability
 
 * Fault
 * Unintended Functionality
-  		+ SQL Injection
-  		+ Buffer Overglow
+  * SQL Injection
+  * Buffer Overglow
 
 C Stack and Memory
 
@@ -233,4 +266,38 @@ Failure Intensity vs Faults
 Failure Intensity over Time
 
 * $\lambda(\tau)=\lambda_0e^{-\frac{\lambda_0}{\nu_0}\tau}$
-* ![](/images/screenshot-from-2019-11-15-15-39-20.png)
+
+![](/images/screenshot-from-2019-11-15-15-39-20.png)
+
+## Week 12 - 1
+
+### Exploting Stack Buffer Overflows
+
+Modern Protection:
+
+* Non-executable stack
+* Address Space Layout Randomisation (ASLR)
+
+## Week 12 - 2
+
+Error Seeding
+Estimating Total Number of Faults in a Program
+
+* Goal: estimate, N, the total number of faults in a program
+* Randomly seed the program with some number E of faults
+* Test or inspect the program to uncover some faults:
+  		+ Suppose  we find P seeded faults
+  		+ Suppose we also find Q unseeded faults
+* Assumption: both kinds(seeded and unseeded) faults are equally likely to be found:
+  	$$\frac {P}{E} = \frac {Q}{N}$$
+  Therefore:
+  	$$N = \frac {Q\times E}{P}$$
+
+## Exam
+
+Security Testing:
+
+* Stack Buffer OverFlow 
+  		+ Influences and Consequences
+* Signed Integer Overflow
+* Timing attack(implicit)
