@@ -6,35 +6,16 @@ title: Software Testing - Review
 
 Difference between ordinary program testing and security testing:
 
-**Program Testing:** seeks to uncover program **_faults_**, exhibited by failures: when the program’s observable behaviour differs from what it was intended or required to do.
+**Program Testing:** seeks to uncover program _**faults**_, exhibited by failures: when the program’s observable behaviour differs from what it was intended or required to do.
 
-**Security Testing:** seeks to uncover security **_vulnerabilities_**: typically extra functionality that allows an attacker to do something unwanted.
+**Security Testing:** seeks to uncover security _**vulnerabilities**_: typically extra functionality that allows an attacker to do something unwanted.
 
 > Something unwanted:
 >
-> \
->
->
 > 1. Causing the program to crash: availability
->
-> \
->
->
 > 2. Causing the program to corrupt data: integrity
->
-> \
->
->
 > 3. Causing the program to reveal sentitive data: confidentiality
->
-> \
->
->
 > 4. Causing the program to take excessive amount of time to execute: availability and performance
->
-> \
->
->
 > 5. Causing the program to execute attacker-contolled functionality
 
 Vulnerability
