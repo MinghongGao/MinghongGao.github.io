@@ -2,13 +2,207 @@
 layout: post
 title: Software Testing - Review
 ---
+## Week 1 - 1
+
+What is software testing and why do we do it ? 
+
+* For finding errors and incresing confidence that there are no errors
+* Ensure software meets specification
+* Software is robust
+* Protect against vulnerabilities
+  What is a successful test case ?
+* Tests that didn't pass!
+
+
+
+
+## Week 1 - 2
+
+**Equivalence partitioning:** set of tests in which each element is as good as each other for the purpose of test
+**Properties:**
+
+1. Coverage: the union of all equivalance classes = input domain
+2. Disjoint: a single test belongs to only 1
+
+
+
+## Week 2 - 1
+
+Input domain 
+Equivalence Tree
+6 guide lines 
+
+## Week 2 - 2
+
+boundary shift(boundary fault)  -> Boundary Analysis
+
+## Week 3 - 1
+
+### Control Flow Testing
+
+Control Flow Graph 
+Criteria:
+
+* **Statement Coverage:** Every statement should be exercised at least once
+* **Branch Coverage (or Decision Coverage):** Every alternative in a branch should be exercised at least once
+* **Condition coverage:** Each conditon in a branch condition is made to evaluate to TRUE and FALSE at least once. E.g `if (a && b)`, a must evaluare to True and False at least once, and so must b.
+* **Decision-Condition Coverage:** Combination of branch and condition coverage
+* **Multiple-Condition Coverage:** All possible combinations of condition outcomes within each branch should be exervised at least once.
+* **Path Coverage:** Every execution path of the program should be exercised at lease once. In other words, all possible combinations of branch condition outcomes should be exercised at lease once.
+  > **Path coverage (cont)**: loops have infinite number of paths. Thus, often choose a boundary number (N) of times a loop can be executed and then test it up until N.
+
+Branch Coverage - > Statement Coverage
+
+## Week 3 - 2
+
+### Data Flow Testing
+
+**Definitions:** A statement defines a variable by assigning value to the variable, e.g., x = 5, scan(x)
+**Reference:** A statement makes a reference to a variable either as an:
+
+* L-value: a value is stored to the variable, e.g., x=5
+* R-value: get value of a variable, e.g., ... = 3 * x
+  **Undefine:**  A statement undefines a variable whenever the value of the variable becomes unknown, e.g., when scope of a local variable ends. 
+
+Data flow anomalies
+**U-R anomaly:** occurs when undefined variable is referenced, e.g., Object A;....; B = A;
+**D-U anomaly:** occurs when a variable is defined but not referenced before it becomes undefined. This usually indicates that wrong variable has been defined/undefined.
+**D-D anomaly:** occurs when a variable is defined twice before it is referenced.
+**Notes:** compilers have options to detect these
+
+### Data Flow Graph
+
+* $d_n(x)$(define): e.g., x=5
+* $u_n(x)$ (use/reference): e.g., y = x + 1
+* $k_n(x)$ (kill/undefine): e.g., free(c)
+* $c_n(x)$ (computational use): e.g, ... = x * 3
+* $p_n(x)$ (predicate use): e.g., if(x>2)
+  > Data flow graph is a control flow graph annotated with data notaions attached to each CFG node.
+
+A **definition clear path p** with respect to a variable x is a sub-path of the control-flow graph where x is defined in the first node of the path p, and is not defined or killed in any of the remaining nodes in p.
+A **definition $d_m(x)$ reaches a use $u_n(x)$** if and only if there is a sub-path p  that is definition clear(with respect to x, and for which m is the head element, and n is the final element)
+
+**Coverage-based Criteria**
+**All-Defs:** test at least one path from the single definition of a variable to at least one use of it
+**All-Uses:** test paths traversing from definition of a variable of all uses reachable from the definiton.
+**All-Du-Paths:** test all definition clear paths for all DU pairs  
+
+Control Flow Testing wouldn't be enough. Remember the division by zero example?
+
+Data Flow Testing is to complement by testing the effect of data flowing through the whole program
+
+## Week 4 - 1
+
+### Dynamic Data-Flow Analysis
+
+
+
+## Week 4 - 2
+
+### Mutation Analysis
+
+Couping Effect:
+
+* If test suite finds small faults, then it will find larger faults
+
+1. Make X copies of the program
+2. Insert 1 small syntacyic change into each copy
+3. Run test suite of all X fault versions
+4. Mutation Score = #kill/#total mutants(X)
+5. Find unkilled mutants, **determine if they are equivalanet(Hard)**, and if not, add tests to kill them
+
+  Equivalent mutants:
+
+* Return x --> Return x++
+
+Not all mutants can be killed
+
+## Week 5 - 1
+
+### Modular Testing
+
+**Observability**
+
+* It's hard to see whether our test is correct or not
+* There is not way to observe what's going on
+
+**Controllability**
+
+* We got test we would like to run, but it's difficult or impossible  to actually control our system to get into the state we find interest
+
+**Relation**
+High Observability + high Controllability -> Easier to see the effect of tests
+
+Low Observability + high controllability -> Harder to see the effect of tests
+Observability + Controllability = Testability
+**Example:**
+Web Applications are hard to observe and control
+
+**Roles**
+
+* initializer
+* Transformer
+* Observers
+
+Using finite state machine to model our tests 
+
+* **state coverage:** at least one test for each state
+* **Transition Coverage:**  at least one for each transition
+* **Path coverage:** 
+
+## Week 5 - 2
+
+### Object-oriented testing
+
+Polymorphism
+
+* Effectively share tests for super classes
+
+
+## Week 6 - 1
+
+Test oracles
+The output of the program should be
+
+* a program
+* a process
+* a body of data
+* that determines if actual output from a program has failed or not
+
+Types of oracle:
+
+* Human oracle
+  		+ using human knowledge
+  		+ flexiable but least efficient
+* Alternate implementations (golden program)
+  		+ Previous implementation
+* Real data, solved examples
+* Heuristic oracles
+
+BinarySearch oracle:
+
+* Compare to a linear search (what if target is at multiple locations?\*\**)
+* Another BinarySearch
+  		+ people tend to make same errors
+* Construct input so that we know the location of the target
+* index =  binarySearch(list, target), if index >= 0 Assert(list\[index] == target) else index = -1
+
+Categories of oracle:
+
+1. Active Oracle: Given the input, can tell what the output should be. And finally compare them -- replicates behaviour(always exist)
+2. Passive Oracle:  Given input and output,  then tell if it's correct or not. -- only checks behaviour(non-determinisim works wel, needs to have good relation between input and output, not always exist)
+
+Metamorphic oracle
+
+## Week 6 - 2
+
 ## Week 7 - 1
 
 Difference between ordinary program testing and security testing:
 
-**Program Testing:** seeks to uncover program _**faults**_, exhibited by failures: when the program’s observable behaviour differs from what it was intended or required to do.
+**Program Testing:** seeks to uncover program **_faults_**, exhibited by failures: when the program’s observable behaviour differs from what it was intended or required to do.
 
-**Security Testing:** seeks to uncover security _**vulnerabilities**_: typically extra functionality that allows an attacker to do something unwanted.
+**Security Testing:** seeks to uncover security **_vulnerabilities_**: typically extra functionality that allows an attacker to do something unwanted.
 
 > Something unwanted:
 >
