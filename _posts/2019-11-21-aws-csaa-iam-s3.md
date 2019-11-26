@@ -1,6 +1,6 @@
 ---
 layout: post
-title: AWS CSAA IAM & S3
+title: AWS CSAA
 ---
 ## S3
 
