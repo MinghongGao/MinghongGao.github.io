@@ -808,3 +808,141 @@ Cognito Synchronisation
 * no os, patches
 * as an event-driven compute service. triggers
 * as a compute service
+
+### Q&A
+
+SAML single sign on
+S3 transfer acceleration
+
+S3 0 minimum size, 128KB minimum billable size
+
+Data stored on EBS volumes is automatically and redundantly stored in multiple physical volumes in the same availability zone as part of the normal operations of the EBS service at no additional charge.
+
+Breaking large complex builds into sections gives you the advantage of being able to reuse common templates patterns with a known and proven configuration, plus being able to share responsibility to SME for their portion of the architecture.
+
+an application consistent snapshot, your best option would be to shutdown the EC2 instance and detach the EBS volume, then take the snapshot.
+
+An Elastic Load Balancer can help you deliver stateful services, but not stateless. Elastic Map Reduce is a data-analysis service and is not related to servicing web traffic.
+
+Multi-AZ deployments utilize synchronous replication, making database writes concurrently on both the primary and standby so that the standby will be up-to-date in the event a failover occurs.
+
+S3 and DynamoDB are availability-zone redundant by default - so there is no need for any extra redundancy to be designed in. However, EC2 and RDS both need to be designed in a redundant way, such as Multi-AZ configurations for RDS and having EC2 instances across multiple zones
+
+### Placement Group
+
+* A partition placement group supports a maximum of **seven** partitions per Availability Zone. 
+* The number of instances that you can launch in a partition placement group is limited only by your account limits.
+* A spread placement group supports a maximum of seven running instances per Availability Zone.
+
+### S3 Encryption
+
+SSE-S3 uses managed keys and one of the strongest block ciphers available, AES-256, to secure your data at rest.
+
+### VPC public Internet Connection
+
+Nat Gatway is not IPv6 compatible
+
+Egress-Only Internet Gateways are specifically designed to allow outbound communication over IPv6 from your instances to the Internet, and prevent the internet from initiating an IPv6 connection with your instances, and is therefore the correct choice for this scenario.
+
+### AWS Config
+
+You can use AWS Config to continuously record configurations changes to Amazon RDS DB Instances, DB Subnet Groups, DB Snapshots, DB Security Groups, and Event Subscriptions and receive notification of changes through Amazon Simple Notification Service (SNS).
+
+### AWS Shield(DDOS Protection)
+
+AWS Shield Standard does not include notification of any attacks detected, therefore can be eliminated straight away. Although WAF can be used during a DDOS attack to help mitigate the attack with custom block rules, there are no in-built DDOS protections with WAF as these are provided by Shield. AWS has a dedicated DDOS Response Team (DRT) to assist during any DDOS attacks - however in order to access them, you need to be on an Enterprise or Business support agreement, and relevant to this scenario, have purchased Shield Advanced. This combined with the alerting of attacks that is available with Shield Advanced make purchasing Shield Advanced the most appropriate choice.
+
+### Virtual Private Gateway
+
+A virtual private gateway is the VPN concentrator on the Amazon side of the VPN connection. You create a virtual private gateway and attach it to the VPC from which you want to create the VPN connection.
+
+### ALB in public/private subnet
+
+Placing the ALB in a private subnet would generally make it inaccessible to users outside your organization, so these two options can be discounted. Of the remaining two options, although both could work in theory, one has you deploying the application servers into the same public subnet as the ALB - this would mean having to attach a public IP to them in order to allow them to download updates, or using some custom routing at the OS which increases complexity. The recommended architecture is to deploy the ALB into the public subnet, and the application & database tiers into different private subnets.
+
+### Round Robin Routing Algorithm
+
+* The Classic will use Round-Robin only for TCP. The ALB will use it for final node selection after parsing the routing rules.
+
+### new S3 Puts 100 - 3500 Puts/second
+
+Until 2018 there was a hard limit on S3 puts of 100 PUTs per second. To achieve this care needed to be taken with the structure of the name Key to ensure parallel processing. As of July 2018 the limit was raised to 3500 and the need for the Key design was basically eliminated. Disk IOPS is not the issue with the problem. The account limit is not the issue with the problem.
+
+### SSD volumes must be between 1 GiB - 16 TiB.
+
+### a VM can only have 22 virtual volumes during the SMS replication job.
+
+### read node in RDS, is via Reader endpoint
+
+### let RDS encrypted
+
+At the present time, encrypting an existing DB Instance is not supported. To use Amazon RDS encryption for an existing database, create a new DB Instance with encryption enabled and migrate your data into it. Alternately you can encrypt a copy of a Snapshot and restore the encrypted copy. However you cannot encrypt as you are restoring from a snapshot. A key point is that an outage will be required either way.
+
+### Aurora Serverless and auto-autoscaling
+
+Aurora Serverless is an on-demand, auto-scaling configuration that will scale capacity up or down based on an application's needs. Aurora Auto Scaling is also a good solution, but it requires that the original cluster have at least one Aurora Replica. In our case, there is only a primary instance. Resizing for the highest anticipated volume will result in paying for excess capacity outside of peak times, and implementing elasticity in a script ignores Aurora's managed service capabilities.
+
+### Lambda Version numbers are never reused, even for a function that has been deleted and recreated.
+
+### Invalid Bucket Name
+
+There are many conditions for a Bucket name to be invalid. The ones above failed for the following reasons. Bucket names must not contain uppercase characters, bucket names must be no more than 63 characters long, bucket names must not be formatted as an IP address.
+
+### Invalidations
+
+* cannot canncelled
+* up to 3,000 files at a time
+
+### Scheduled scaling policy -ASG
+
+### IAM DB Authentication
+
+You can authenticate to your DB instance using AWS Identity and Access Management (IAM) database authentication. IAM database authentication works with MySQL and PostgreSQL. With this authentication method, you don't need to use a password when you connect to a DB instance. Instead, you use an authentication token.
+
+An _authentication token_ is a unique string of characters that Amazon RDS generates on request. Authentication tokens are generated using AWS Signature Version 4. Each token has a lifetime of 15 minutes. You don't need to store user credentials in the database, because authentication is managed externally using IAM. You can also still use standard database authentication.
+
+### AWS Budget
+
+### CloudWatch Default matrics
+
+* CPU utilization
+* Disk reads/write
+* Maximum Network in/out
+
+### Lambda with KMS
+
+* Lambda will encrypt the environment variable by default using only the default kms key, which is still accessible by other user who have access to the aws console
+* after created, the default kms key cannot be used. You have to create your own kms key.
+
+### S3 Select
+
+Using SQL language to select subset of an object that you want instead of downloading the whole object.
+
+### Kinesis Fire Horse
+
+* can load to S3, Redshift, Splunk, Elasticsearch
+
+### Amazon Refshift Spectrum
+
+Amazon Redshift Spectrum is a feature of Amazon Redshift that enables you to run queries against exabytes of unstructured data in Amazon S3 with no loading or ETL(Extra, transform, load) required.
+
+### RDS Monitoring
+
+Take note that CloudWatch gathers metrics about CPU utilization from the hypervisor for a DB instance while RDS Enhanced Monitoring gathers its metrics from an agent on the instance.
+
+### EC2 Monitoring
+
+you do not have direct access to the instances/servers of your RDS database instance, unlike with your EC2 instances where you can install a CloudWatch agent or a custom script to get CPU and memory utilization of your instance.
+
+### EC2 Health Check
+
+There are two ways of checking the status of your EC2 instances:
+
+1. Via the Auto Scaling group
+2. Via the ELB health checks
+
+The default health checks for an Auto Scaling group are **EC2 status checks** only. If an instance fails these status checks, the Auto Scaling group considers the instance unhealthy and replaces. If you attached one or more load balancers or target groups to your Auto Scaling group, the group does not, by default, consider an instance unhealthy and replace it if it fails the load balancer health checks.
+
+However, you can optionally configure the Auto Scaling group to use Elastic Load Balancing health checks. This ensures that the group can determine an instance's health based on additional tests provided by the load balancer. The load balancer periodically sends pings, attempts connections, or sends requests to test the EC2 instances. These tests are called **_health checks._**
+
+If you configure the Auto Scaling group to use Elastic Load Balancing health checks, it considers the instance unhealthy if it fails either the EC2 status checks or the load balancer health checks. If you attach multiple load balancers to an Auto Scaling group, all of them must report that the instance is healthy in order for it to consider the instance healthy. If one load balancer reports an instance as unhealthy, the Auto Scaling group replaces the instance, even if other load balancers report it as healthy.
